@@ -1,0 +1,18 @@
+POST http://localhost:7781/api/users/register
+Content-Type: application/json
+
+{
+  "name": "test",
+  "email": "test@test.com",
+  "password": "12314"
+}
+
+######################
+
+POST http://localhost:7781/api/users/login
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "12314"
+}
