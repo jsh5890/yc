@@ -25,11 +25,14 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 //applicaton/json
+// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use('/api/users', require('./routes/users'))
 app.use('/api/video', require('./routes/video'))
+
+app.use('/uploads', express.static('/uploads'));
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
