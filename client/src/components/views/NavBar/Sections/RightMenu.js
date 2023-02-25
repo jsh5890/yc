@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 
 function RightMenu(props) {
     const user = useSelector(state => state.user)
-    console.log("RightMenu user : ", user)
+    // console.log("RightMenu user : ", user)
     const link = useNavigate();
 
     const items = [
@@ -31,6 +31,12 @@ function RightMenu(props) {
     ];
 
     const items2 = [
+        {
+            label: (
+                <a href="/video/upload">Video</a>
+            ),
+            key: 'app',
+        },
         {
             label: 'Logout',
             key: 'logout',

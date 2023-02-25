@@ -1,16 +1,18 @@
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { Suspense } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Auth from "./hoc/auth";
+import Footer from "./views/Footer/Footer";
 import LandingPage from "./views/LandingPage/LandingPage";
 import LoginPage from "./views/LoginPage/LoginPage";
-import RegisterPage from "./views/RegisterPage/RegisterPage";
-import Auth from "./hoc/auth";
 import NavBar from "./views/NavBar/NavBar";
-import Footer from "./views/Footer/Footer";
-import {Suspense} from "react";
+import RegisterPage from "./views/RegisterPage/RegisterPage";
+import VideoUploadPage from "./views/VideoUploadPage/VideoUploadPage";
 
 function App() {
     // const AuthLandingPage = Auth(LandingPage, null);
     const AuthLoginPage = Auth(LoginPage, null);
     const AuthRegisterPage = Auth(RegisterPage, false);
+    const AuthVideoUploadPage = Auth(VideoUploadPage, true);
     return (
         <Router>
             <Suspense fallback={(<div>Loading...</div>)}>
@@ -20,6 +22,7 @@ function App() {
                     <Route path="/" element={<LandingPage/>} />
                     <Route path="/login" element={<AuthLoginPage/>} />
                     <Route path="/register" element={<AuthRegisterPage/>} />
+                    <Route path="/video/upload" element={<AuthVideoUploadPage/>} />
                 </Routes>
             </div>
             <Footer />

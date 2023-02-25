@@ -3,7 +3,7 @@ import LeftMenu from './Sections/LeftMenu';
 import RightMenu from './Sections/RightMenu';
 import {Button, Drawer} from 'antd';
 import './Sections/Navbar.css';
-import {RightOutlined} from "@ant-design/icons";
+import {AlignRightOutlined} from "@ant-design/icons";
 
 function NavBar() {
   const [visible, setVisible] = useState(false)
@@ -33,14 +33,16 @@ function NavBar() {
           type="primary"
           onClick={showDrawer}
         >
-          <RightOutlined />
+          <AlignRightOutlined />
         </Button>
         <Drawer
-          title="Basic Drawer"
+          title="Menu"
           placement="right"
           className="menu_drawer"
           closable={false}
           onClose={onClose}
+          open={visible}
+          width={200}
         >
           <LeftMenu mode="inline" />
           <RightMenu mode="inline" />
