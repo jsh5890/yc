@@ -1,1 +1,1 @@
-GET http://localhost:7781/api/users/logout
+GET http://localhost:3000/api/users/logout
